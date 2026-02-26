@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "batch-stream-openai"
+version = "0.1.0"
+description = "Async batch runner for OpenAI API calls with streaming support"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [
+    {name = "batch-stream-openai contributors"}
+]
+keywords = ["openai", "batch", "streaming", "async", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "openai>=1.0.0",
+]
+
+[project.optional-dependencies]
+litellm = ["litellm>=1.0.0"]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+
+[project.urls]
+Repository = "https://github.com/aakashbapna/batch_stream_openai"
+Documentation = "https://github.com/aakashbapna/batch_stream_openai#readme"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"
